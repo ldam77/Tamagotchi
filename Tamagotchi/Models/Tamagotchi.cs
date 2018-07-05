@@ -10,13 +10,14 @@ namespace Tamagotchese.Models
     private int attention = 50;
     private int rest = 80;
     private int id;
+    private static int lastId = 0;
 
     private static List<Tamagotchi> pets = new List<Tamagotchi> {};
     public Tamagotchi(string newName)
     {
       name = newName;
       pets.Add(this);
-      id = pets.Count;
+      id = ++lastId;
     }
     public string GetName()
     {

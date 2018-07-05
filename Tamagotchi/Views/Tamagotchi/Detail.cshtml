@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <title>RPS Game</title>
+    <title>Tamagotchi</title>
   </head>
   <body>
     <h1>Tamagotchi Status</h1>
@@ -11,13 +11,43 @@
     <div class="row">
       <div class="col-md-2">
         <h3>Food:</h3>
+      </div>
+      <div class="col-md-1">
+        <h3>@Model.GetFood()</h3>
+      </div>
+      <div class="col-md-9">
+        <form action="/Tamagotchi/feed" method="post">
+          <input type="hidden" name="id" value="@Model.GetId()" />
+          <h3><button class="button">Feed</button></h3>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
         <h3>Attention:</h3>
+      </div>
+      <div class="col-md-1">
+        <h3>@Model.GetAttention()</h3>
+      </div>
+      <div class="col-md-9">
+        <form action="/Tamagotchi/pat" method="post">
+          <input type="hidden" name="id" value="@Model.GetId()" />
+          <h3><button class="button">Pat</button></h3>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
         <h3>Rest:</h3>
       </div>
-      <div class="col-md-10">
-        <h3>@Model.GetFood()</h3>
-        <h3>@Model.GetAttention()</h3>
+      <div class="col-md-1">
         <h3>@Model.GetRest()</h3>
+      </div>
+      <div class="col-md-9">
+        <form action="/Tamagotchi/sleep" method="post">
+          <input type="hidden" name="id" value="@Model.GetId()" />
+          <h3><button class="button">Sleep zZZ</button></h3>
+        </form>
       </div>
     </div>
     <a href="/TamagotchiList">View all Pets</a>

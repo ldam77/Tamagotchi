@@ -1,11 +1,26 @@
-<h1>Tamagotchi List</h1>
-<ul>
-  @foreach(var pet in Model)
-  {
-    <li><a href="/Tamagotchi/@pet.GetId()">@pet.GetName()</a></li>
-  }
-</ul>
-<a href="/Tamagotchi/new">Add a new Pet</a>
-<form action="/Tamagotchi/delete" method="post">
-  <button type="submit" name="button">Start Over!</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <title>Tamagotchi</title>
+  </head>
+  <body>
+    <h1>Tamagotchi List</h1>
+    <ul>
+      @foreach(var pet in Model)
+      {
+        <li><a href="/Tamagotchi/@pet.GetId()">@pet.GetName()</a></li>
+        <ul>
+          <li>Food: @pet.GetFood()</li>
+          <li>Attention: @pet.GetAttention()</li>
+          <li>Rest: @pet.GetRest()</li>
+        </ul>
+      }
+    </ul>
+    <a href="/Tamagotchi/new">Add a new Pet</a>
+    <form action="/Tamagotchi/delete" method="post">
+      <button type="submit" name="button">Start Over!</button>
+    </form>
+  </body>
+</html>
