@@ -38,6 +38,12 @@ namespace Tamagotchese.Controllers
     {
       int petId = int.Parse(id);
       Tamagotchi.GetAll()[petId-1].SetFood(Tamagotchi.GetAll()[petId-1].GetFood()+10);
+      foreach(Tamagotchi pet in Tamagotchi.GetAll())
+      {
+        pet.SetFood(pet.GetFood()-2);
+        pet.SetAttention(pet.GetAttention()-2);
+        pet.SetRest(pet.GetRest()-2);
+      }
       return RedirectToAction("Detail", new { id = petId });
     }
     [HttpPost("/Tamagotchi/pat")]
@@ -45,6 +51,12 @@ namespace Tamagotchese.Controllers
     {
       int petId = int.Parse(id);
       Tamagotchi.GetAll()[petId-1].SetAttention(Tamagotchi.GetAll()[petId-1].GetAttention()+10);
+      foreach(Tamagotchi pet in Tamagotchi.GetAll())
+      {
+        pet.SetFood(pet.GetFood()-2);
+        pet.SetAttention(pet.GetAttention()-2);
+        pet.SetRest(pet.GetRest()-2);
+      }
       return RedirectToAction("Detail", new { id = petId });
     }
     [HttpPost("/Tamagotchi/sleep")]
@@ -52,6 +64,12 @@ namespace Tamagotchese.Controllers
     {
       int petId = int.Parse(id);
       Tamagotchi.GetAll()[petId-1].SetRest(Tamagotchi.GetAll()[petId-1].GetRest()+10);
+      foreach(Tamagotchi pet in Tamagotchi.GetAll())
+      {
+        pet.SetFood(pet.GetFood()-2);
+        pet.SetAttention(pet.GetAttention()-2);
+        pet.SetRest(pet.GetRest()-2);
+      }
       return RedirectToAction("Detail", new { id = petId });
     }
     [HttpPost("/Tamagotchi/delete")]
